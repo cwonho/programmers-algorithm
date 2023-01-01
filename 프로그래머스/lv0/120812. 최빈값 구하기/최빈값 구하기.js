@@ -5,20 +5,11 @@ function solution(array) {
         newObj[num] = ++newObj[num] || 1;
     })
     
-    let modeKey = Object.keys(newObj)[0];
-    let mode = newObj[modeKey];
+    const keys = Object.keys(newObj);
     
+    keys.sort((a, b) => newObj[b] - newObj[a]);
     
-    for (let key in newObj) {
-        if (newObj[key] > mode) {
-            mode = newObj[key];
-            modeKey = key;
-        }
-    }
+    mode = Number(keys[0]);
     
-    for (let key in newObj) {
-        if (newObj[key] === mode && key !== modeKey) return -1;
-    }
-    
-    return Number(modeKey);
+    return newObj[keys[0]] === newObj[keys[1]] ? -1 : mode;
 }
