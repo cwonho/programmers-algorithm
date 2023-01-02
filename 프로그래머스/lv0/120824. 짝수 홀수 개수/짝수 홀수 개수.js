@@ -1,13 +1,9 @@
 function solution(num_list) {
-    let answer=[];
-    let countOdd=0;
-    let countEven=0;
+    let answer=[0, 0];
     
     for (let num of num_list) {
-        num%2 === 0 ? countEven++ : countOdd++;
+        answer[num%2] += 1;
     }
-    
-    answer.push(countEven, countOdd);
     
     return answer;
 }
