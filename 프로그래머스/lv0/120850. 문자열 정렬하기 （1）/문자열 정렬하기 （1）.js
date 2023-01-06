@@ -1,3 +1,3 @@
 function solution(my_string) {
-    return [...my_string.replace(/[a-z]/g, '')].map(num => Number(num)).sort((a,b) => a-b);
+    return my_string.match(/\d/g).sort((a,b)=>a-b).map(num=>Number(num));
 }
